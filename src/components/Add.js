@@ -8,6 +8,7 @@ const Add = ({ setIsAdding, path, index }) => {
   const activeForm = [
     {path:"", title:""},
     {path:"", section:"", title:""},
+    {category:"", path:"", title:""},,
     {category:"", description:"", image:"", name:"", price:""},
   ]
 

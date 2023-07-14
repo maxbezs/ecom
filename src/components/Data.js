@@ -15,6 +15,14 @@ export const Data = [
       ]
     },
     {
+      data: 'Subcategories',
+      columns:[
+        'Category',
+        'Path',
+        'Title',
+      ]
+    },
+    {
       data: 'Products',
       columns:[
         'Category',
@@ -22,6 +30,7 @@ export const Data = [
         'Image',
         'Name',
         'Price',
+        'Subcategory'
       ]
     },
   ];

@@ -12,7 +12,7 @@ import Accordion from './Accordion';
 const Dashboard = ({ setIsAuthenticated }) => {
   const [data, setData] = useState([]);
   const [activeButton, setActiveButton] = useState();
-  const [clicked, setClicked] = useState(false);
+  const [clicked, setClicked] = useState();
   const [isAdding, setIsAdding] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [selectedData, setSelectedData] = useState();
@@ -21,15 +21,24 @@ const Dashboard = ({ setIsAuthenticated }) => {
     () => ({
       0: ["ecommerce", "sections", "children"],
       1: ["ecommerce", "categories", "children"],
-      2: ["ecommerce", "products", "children"],
+      2: ["ecommerce", "subcategories", "children"],
+      3: ["ecommerce", "products", "children"],
     }),
     []
   );
 
   const toggle = useCallback((index) => {
-    setClicked(index);
-    setActiveButton(index);
+    setClicked((prevClicked) => {
+      if (index === prevClicked) {
+        return undefined;
+      } else {
+        setActiveButton(index);
+        return index;
+      }
+    });
   }, []);
+  
+  
 
   const handleEdit = useCallback((docData, index) => {
     setSelectedData(docData);
